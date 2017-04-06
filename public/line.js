@@ -1,15 +1,14 @@
 var svg = d3.select("svg"),
     margin = { top: 20, right: 20, bottom: 110, left: 50 },
     width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom
-margin2 = { top: 430, right: 20, bottom: 30, left: 50 },
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    margin2 = { top: 430, right: 20, bottom: 30, left: 50 },
     height2 = +svg.attr("height") - margin2.top - margin2.bottom;
 
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
     .append("rect")
-    .attr("fill", "green")
     .attr("width", width)
     .attr("height", height);
 
@@ -100,7 +99,8 @@ d3.json("public/data.json"
         }
 
 
-        data.forEach(function (x) { x.date = new Date(x.timestamp * 1000) })
+        data.forEach(function (x) { x.date = new Date(x.timestamp)})
+
 
         x0.domain(d3.extent(data, function (d) { return d.date; }));
         x.domain(x0.domain());
