@@ -178,7 +178,7 @@ body {
 
 .bar{
   clip-path:url(#clip);
-  fill:orange;
+
 }
 
 .legend rect {
